@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<implementation>
+
+    <specVersion>
+        <major>1</major>
+        <minor>0</minor>
+    </specVersion>
+    <files>L_Heliotrope1.lua</files>
+
+    <startup>luaStartUp</startup>
+
+</implementation>
+

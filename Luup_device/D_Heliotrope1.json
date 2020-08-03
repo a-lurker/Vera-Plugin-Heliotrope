@@ -1,0 +1,235 @@
+{
+   "flashicon": "https://a-lurker.github.io/icons/Sun_50_50.png",
+   "default_icon": "https://a-lurker.github.io/icons/Sun_50_50.png",
+   "inScene": "0",
+   "DisplayStatus": {},
+   "doc_url": {
+      "doc_language": 1,
+      "doc_manual": 1,
+      "doc_version": 1,
+      "doc_platform": 0,
+      "doc_page": "devices"
+   },
+   "Tabs": [
+      {
+         "Label": {
+            "lang_tag": "tabname_control",
+            "text": "Control"
+         },
+         "Position": "0",
+         "TabType": "flash",
+         "SceneGroup": [
+            {
+               "id": "1",
+               "top": "1",
+               "left": "0",
+               "x": "2",
+               "y": "2"
+            }
+         ],
+         "ControlGroup": [
+            {
+               "id": "1",
+               "type": "info",
+               "scenegroup": "1"
+            },
+            {
+               "id": "2",
+               "type": "info",
+               "scenegroup": "1"
+            }
+         ],
+         "Control": [
+            {
+               "ControlGroup": "1",
+               "ControlPair": "1",
+               "ControlHeader": "1",
+               "ControlType": "label",
+               "Label": {
+                  "lang_tag": "azimuth",
+                  "text": "Azimuth°:"
+               },
+               "top": 0,
+               "left": 0,
+               "Display": {
+                  "Top": 40,
+                  "Left": 20,
+                  "Width": 100,
+                  "Height": 20
+               }
+            },
+            {
+               "ControlGroup": "1",
+               "ControlPair": "1",
+               "ControlHeader": "1",
+               "ControlType": "variable",
+               "top": 0,
+               "left": 0.8,
+               "Display": {
+                  "Service": "urn:futzle-com:serviceId:Heliotrope1",
+                  "Variable": "AzimuthRounded",
+                  "Top": 40,
+                  "Left": 150,
+                  "Width": 100,
+                  "Height": 20
+               }
+            },
+            {
+               "ControlGroup": "2",
+               "ControlPair": "1",
+               "ControlHeader": "1",
+               "ControlType": "label",
+               "Label": {
+                  "lang_tag": "altitude",
+                  "text": "Altitude°:"
+               },
+               "top": 1,
+               "left": 0,
+               "Display": {
+                  "Top": 65,
+                  "Left": 20,
+                  "Width": 100,
+                  "Height": 20
+               }
+            },
+            {
+               "ControlGroup": "2",
+               "ControlPair": "1",
+               "ControlHeader": "1",
+               "ControlType": "variable",
+               "top": 1,
+               "left": 0.8,
+               "Display": {
+                  "Service": "urn:futzle-com:serviceId:Heliotrope1",
+                  "Variable": "AltitudeRounded",
+                  "Top": 65,
+                  "Left": 150,
+                  "Width": 100,
+                  "Height": 20
+               }
+            },
+            {
+               "ControlGroup": "3",
+               "ControlPair": "1",
+               "ControlHeader": "1",
+               "ControlType": "label",
+               "Label": {
+                  "lang_tag": "rightascension",
+                  "text": "Right Ascension hrs:"
+               },
+               "Display": {
+                  "Top": 90,
+                  "Left": 20,
+                  "Width": 100,
+                  "Height": 20
+               }
+            },
+            {
+               "ControlGroup": "3",
+               "ControlPair": "1",
+               "ControlHeader": "1",
+               "ControlType": "variable",
+               "Display": {
+                  "Service": "urn:futzle-com:serviceId:Heliotrope1",
+                  "Variable": "RightAscensionHrs",
+                  "Top": 90,
+                  "Left": 150,
+                  "Width": 100,
+                  "Height": 20
+               }
+            },
+            {
+               "ControlGroup": "3",
+               "ControlPair": "1",
+               "ControlHeader": "1",
+               "ControlType": "label",
+               "Label": {
+                  "lang_tag": "rightascension",
+                  "text": "Right Ascension°:"
+               },
+               "Display": {
+                  "Top": 115,
+                  "Left": 20,
+                  "Width": 100,
+                  "Height": 20
+               }
+            },
+            {
+               "ControlGroup": "3",
+               "ControlPair": "1",
+               "ControlHeader": "1",
+               "ControlType": "variable",
+               "Display": {
+                  "Service": "urn:futzle-com:serviceId:Heliotrope1",
+                  "Variable": "RightAscensionRounded",
+                  "Top": 115,
+                  "Left": 150,
+                  "Width": 100,
+                  "Height": 20
+               }
+            },
+            {
+               "ControlGroup": "3",
+               "ControlPair": "1",
+               "ControlHeader": "1",
+               "ControlType": "label",
+               "Label": {
+                  "lang_tag": "declination",
+                  "text": "Declination°:"
+               },
+               "Display": {
+                  "Top": 140,
+                  "Left": 20,
+                  "Width": 100,
+                  "Height": 20
+               }
+            },
+            {
+               "ControlGroup": "3",
+               "ControlPair": "1",
+               "ControlHeader": "1",
+               "ControlType": "variable",
+               "Display": {
+                  "Service": "urn:futzle-com:serviceId:Heliotrope1",
+                  "Variable": "DeclinationRounded",
+                  "Top": 140,
+                  "Left": 150,
+                  "Width": 100,
+                  "Height": 20
+               }
+            }
+         ]
+      },
+      {
+         "Label": {
+            "lang_tag": "advanced",
+            "text": "Advanced"
+         },
+         "Position": "1",
+         "TabType": "javascript",
+         "ScriptName": "shared.js",
+         "Function": "advanced_device"
+      },
+      {
+         "Label": {
+            "lang_tag": "logs",
+            "text": "Logs"
+         },
+         "Position": "2",
+         "TabType": "javascript",
+         "ScriptName": "shared.js",
+         "Function": "device_logs"
+      },
+      {
+         "Label": {
+            "lang_tag": "notifications",
+            "text": "Notifications"
+         },
+         "Position": "3",
+         "TabType": "javascript",
+         "ScriptName": "shared.js",
+         "Function": "device_notifications"
+      }
+   ],
+    "device_type": "urn:schemas-futzle-com:device:Heliotrope:1"
+}
