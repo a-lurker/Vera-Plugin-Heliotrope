@@ -9,6 +9,7 @@
     placed on GitHub and linked to the AltApp store.
 
     Modified and updated by a-lurker, July 2020
+    Ver 0.52 released Aug 2020
 
     Modifications and updates by a-lurker to the orginal program
     is free software; you can redistribute it and/or
@@ -28,6 +29,10 @@
 
 
     Inputs:
+        UseAscDec             = '0' or '1':   calculate celestial coordinates or not
+        RightAscension_0to360 = '0' or '1':   -180º to 180º or 0º to 360º
+        Azimuth_0to360        = '0' or '1':   -180º to 180º or 0º to 360º
+
         Latitude  = can be customised - defaults to location set in Vera
         Longitude = can be customised - defaults to location set in Vera
 
@@ -35,7 +40,6 @@
         RightAscension        = celestial coordinates: analogous to terrestrial longitude where the sun is directly overhead: -180º to 180º
         RightAscensionHrs     = hrs:mins:secs  360º/24 = 15º per hour
         RightAscension360     = 0º to 360º
-        RightAscension_0to360 = '0' or '1'   -180º to 180º or 0º to 360º
         RightAscensionRounded = rounded to 0.1 degree
 
         Declination           = analogous to terrestrial latitude where the sun is directly overhead -90º to 90º
@@ -43,7 +47,6 @@
 
         Azimuth               = -180º south, -90º west, 0º north , 90º east, 180º south  (aka direction)
         Azimuth360            =  180º south, 270º west, 0º north , 90º east, 180º south
-        Azimuth_0to360        = '0' or '1'   -180º to 180º or 0º to 360º
         AzimuthRounded        = rounded to 0.1 degree
 
         Altitude              = angle between -90° and 90° below/above horizon (aka elevation)
@@ -52,7 +55,7 @@
 
 local PLUGIN_NAME     = 'Heliotrope'
 local PLUGIN_SID      = 'urn:futzle-com:serviceId:'..PLUGIN_NAME..'1'
-local PLUGIN_VERSION  = '0.51'
+local PLUGIN_VERSION  = '0.52'
 local THIS_LUL_DEVICE = nil
 
 local m_pollInterval  = 30   -- seconds
@@ -194,7 +197,7 @@ function luaStartUp(lul_device)
     local RA_use360     = luup.variable_get(PLUGIN_SID, 'RightAscension_0to360', THIS_LUL_DEVICE)
     local Az_use360     = luup.variable_get(PLUGIN_SID, 'Azimuth_0to360',        THIS_LUL_DEVICE)
 
-    if ((pluginEnabled ~= '0') or (pluginEnabled ~= '1')) then
+    if not((pluginEnabled == '0') or (pluginEnabled == '1')) then
         pluginEnabled = '1'
         variableSet('PluginEnabled', pluginEnabled)
     end
@@ -216,21 +219,21 @@ function luaStartUp(lul_device)
         m_longitude = longitude
     end
 
-    if ((useAscDec ~= '0') or (useAscDec ~= '1')) then
+    if not((useAscDec == '0') or (useAscDec == '1')) then
         -- the user must set this to '1' if they are really interested in using asc/dec
         useAscDec = '0'
         variableSet('UseAscDec', useAscDec)
     end
     m_useAscDec = (useAscDec == '1')
 
-    if ((RA_use360 ~= '0') or (RA_use360 ~= '1')) then
+    if not((RA_use360 == '0') or (RA_use360 == '1')) then
         -- celestial coordinates use 0º to 360º or hours at 15º per hour
         RA_use360 = '1'
         variableSet('RightAscension_0to360', RA_use360)
     end
     m_RA_use360 = (RA_use360 == '1')
 
-    if ((Az_use360 ~= '0') or (Az_use360 ~= '1')) then
+    if not((Az_use360 == '0') or (Az_use360 == '1')) then
         Az_use360 = '1'  -- zero to 360 degrees is typically used
         variableSet('Azimuth_0to360', Az_use360)
     end
